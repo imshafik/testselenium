@@ -2,10 +2,11 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import Pages.AddNewUserPopUp;
 import Pages.AdminLoginPage;
 import Pages.AdminmainPage;
 import Pages.UserRegisrationPage;
+import io.qameta.allure.Description;
+import Pages.AddNewUserPopUp;
 
 public class AddNewUserTest extends TestBaseadmin
 
@@ -15,8 +16,8 @@ public class AddNewUserTest extends TestBaseadmin
 	AdminLoginPage Adminloginobject ;
 	AddNewUserPopUp  adduserobject ;
 
-	@Test (priority = 1)
-	public void Login_And_Open_New_User_Popup()
+	@Test (priority = 1 )
+	public void Login_And_Open_New_User_Popup( )
 	{
 		Adminloginobject = new AdminLoginPage(driver);
 		Adminloginobject.Adminlogin("admin@etisalat.eg", "123456");

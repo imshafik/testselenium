@@ -1,17 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="EPSILON Regression Suite">
-	<test name="Regression Test">
-	<parameter name="browser" value="Chrome"/>
-	
 
+	<parameter name="browser" value="Chrome" />
+	<test name="Regression Test" preserve-order ="false">
 		<classes>
-
-
-			<class name="tests.CompetitionsTabTest" />
-			<class name="tests.UserLoginTest" />
-			<class name="tests.AdminLoginTest" />
-			<class name="tests.AddNewUserTest" />
-			<class name="tests.ScrolltobottomTest" />
+			<class name="tests.TesTMyPage" />
+			<class name="tests.testquick" />
 		</classes>
 	</test>
 </suite> 

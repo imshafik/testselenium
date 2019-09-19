@@ -25,7 +25,7 @@ public class TestBase {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
-		driver.navigate().to("http://demo.epsilonsocial.com/login");
+		driver.navigate().to("http://test.epsilonsocial.com/login");
 	}
 	
 

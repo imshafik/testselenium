@@ -1,116 +1,101 @@
 package tests;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.ITestResult;
-import org.testng.Reporter;
-import org.testng.annotations.Parameters;
+import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Pages.HomePage;
 import Pages.LoginPage;
 
-public class testquick {
+public class testquick extends TestBase {
 
-	public static void main(String[] args) {
+	HomePage HomePageobject ;
+	LoginPage Loginobject ;
 
+	@BeforeTest
+	public void Login()
+	{
+		Loginobject = new LoginPage(driver);
+		Loginobject.UserLogin("admin@etisalat.eg","123456");
+		WebElement Globallink = driver.findElement(By.linkText("Competitions"));
+		Globallink.click();
 	}
+	@Test (priority = 1)
+	public void Check_filter_tool_bar_fields() 
+	{
+		//date range field exist or not 
+		WebElement date_range_title = driver.findElement(By.xpath("//label[@for='filter-from-date']"));
+		String date_range_Field_title = "DATE RANGE";
+		Assert.assertEquals(date_range_Field_title, date_range_title.getText());
+		System.out.println(date_range_title.getText() + "field is exist ");
+		try {
+			WebElement date_range_dropdown = driver.findElement(By.id("filter-daterange"));
+			date_range_dropdown.click();
+			WebElement searchbtn = driver.findElement(By.cssSelector("#front-posts > div.row.clearfix > div > form > div.row > div.col-md-1.text-left > input"));
 
-	public class GlobalTabTest extends TestBase {
-		LoginPage LoginObject ;
-		HomePage HomePageObject ;
-
-		@Test  (priority = 1)
-		public void Login() throws InterruptedException
-		{
-			LoginObject = new LoginPage(driver);
-			LoginObject.UserLogin("admin@etisalat.eg","123456");
-			Thread.sleep(1000);
-		}
-		@Test (priority = 2)
-		public void openglobalpage() throws Exception 
-		{
-			WebElement Globallink = driver.findElement(By.linkText("Global"));
-			System.out.println(Globallink.getAttribute("href"));	
-			Globallink.click();
-			Thread.sleep(1000L);
-		}
-
-		@Test (priority = 3)
-		public void Scrolldown() throws InterruptedException
-		{
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
-			for (int i = 0; i < 3; i = i + 1) {
-				jse.executeScript("window.scrollBy(0, 3000)", "");
-				Thread.sleep(1000L);
-			}
-		}
-		@Test (priority = 4)
-		public void totalpostsdisplayed() 
-		{
-			List<WebElement>  posts = driver.findElements(By.xpath("//div[@class='row clearfix overview article white-panel']"));
-			System.out.println("Total Posts are: "+ posts.size());
-		}
-		@Test (priority = 5)
-		public void testBrokenLinks() 
-		{
-			java.util.List<WebElement> links = driver.findElements(By.tagName("a")); 
-			System.out.println("Total Links are: "+ links.size());
-			for (int i = 0 ; i < links.size() ; i++ ) 
-			{
-				WebElement element = links.get(i);
-				String url = element.getAttribute("href");
-				VerifyLink(url);
-			}
-		}
-		@Parameters({ "urlLink"})
-		@Test (priority = 6)
-		public void VerifyLink(String urlLink) 
-		{
-			try {
-				URL link = new URL(urlLink);
-				// create a connection using URL object
-
-				HttpURLConnection httpConn = (HttpURLConnection) link.openConnection();
-				httpConn.setConnectTimeout(2000);
-				httpConn.connect();
-
-				// use getResponseCode() to get the response code
-				if(httpConn.getResponseCode() == 200) 
-				{
-					System.out.println(urlLink+" - "+httpConn.getResponseMessage());
+			WebElement date_dropdown_List = driver.findElement(By.cssSelector("body > div.daterangepicker.ltr.show-ranges.opensright > div.ranges > ul"));
+			List<WebElement> Date_Dropdown = date_dropdown_List.findElements(By.tagName("li"));
+			for (WebElement Date : Date_Dropdown) {
+				if (Date.getText().equals("Today")) {
+					Date.click();
+					return;
 				}
-				if (httpConn.getResponseCode() == 404) {
-					System.out.println(urlLink+" - "+httpConn.getResponseMessage());
-				}
-
-				if (link.getContent() != null) {
-					System.out.println(urlLink+" - "+httpConn.getResponseMessage());
-
-				}
+				searchbtn.submit();	
+				System.out.println("User can filter date using today selection ");
 			}
-			catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		@Test(priority = 7)
-		public void anotherTestMethod() {
-			ITestResult result = Reporter.getCurrentTestResult();
-			System.err.println("Running " + result.getMethod().getConstructorOrMethod().getMethod().getName());
+		} catch (Exception e) { System.out.println("cannot filter using your selection because its not exist");
 		}
 	}
+	@Test (priority = 2)
+	public void change_date_to_yesterday() 
+	{
+		//date range field exist or not 
+		try {
+			WebElement date_range_dropdown = driver.findElement(By.id("filter-daterange"));
+			date_range_dropdown.click();
+			WebElement date_dropdown_List = driver.findElement(By.cssSelector("body > div.daterangepicker.ltr.show-ranges.opensright > div.ranges > ul"));
+			List<WebElement> Date_Dropdown = date_dropdown_List.findElements(By.tagName("li"));
+			for (WebElement Date : Date_Dropdown) {
+				if (Date.getText().equals("Yesterday")) {
+					Date.click();
+					return;
+				}
+				System.out.println("User can filter date using Yesterday selection ");
+			}
+		} catch (Exception e) { System.out.println("cannot filter using your selection because its not exist");
+		}
+	}
+	@Test (priority = 4)
+	public void click_on_serach_again()
+	{
+		WebElement searchbtn = driver.findElement(By.cssSelector("#front-posts > div.row.clearfix > div > form > div.row > div.col-md-1.text-left > input"));
+		searchbtn.submit();	
+		System.out.println("User can search");		
+	}
 
+	@Test (priority = 9)
+	public void display_total_post_count() 
+	{
+		try {
 
+			WebElement postsdisplayed = driver.findElement(By.id("content"));
+			List<WebElement>  posts = postsdisplayed.findElements(By.className("brand-name"));
+			List<WebElement>  videoinsidepost = postsdisplayed.findElements(By.xpath("//i[@class='icon-line-play']"));
+			System.out.println("Total displayed Posts are: "+ videoinsidepost.size());
+		} catch (NoSuchElementException  e) {System.out.println("cannot count the posts in current page ");
+		}
+	}
+	@AfterTest
+	public void close_driver()
+	{
+		//	driver.quit();
+	}
 }
