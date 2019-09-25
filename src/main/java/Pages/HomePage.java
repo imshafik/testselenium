@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends PageBase {
 
@@ -15,6 +16,9 @@ public class HomePage extends PageBase {
 	WebElement MyPagetab = driver.findElement(By.linkText("My Page"));
 	WebElement competitionstab = driver.findElement(By.linkText("Competitions"));
 	WebElement Globaltab = driver.findElement(By.linkText("Global"));
+	
+	@FindBy(linkText="Logout")
+	WebElement Logoutbtn;
 
 
 
@@ -34,6 +38,12 @@ public class HomePage extends PageBase {
 	public void clickonglobaltab()
 	{
 		Globaltab.click();
+
+	}
+	
+	public void clickonLogout()
+	{
+		Logoutbtn.click();
 
 	}
 
