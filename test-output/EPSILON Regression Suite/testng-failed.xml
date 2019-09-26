@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [EPSILON Regression Suite]">
+  <test thread-count="5" name="Regression Test(failed)">
+    <classes>
+      <class name="tests.TesTMyPage">
+        <methods>
+          <include name="stopdriver"/>
+          <include name="screenshotonfailure"/>
+          <include name="Login"/>
+          <include name="databloks"/>
+          <include name="startdriver"/>
+          <include name="openmypagepage"/>
+          <include name="Check_chart"/>
+        </methods>
+      </class> <!-- tests.TesTMyPage -->
+      <class name="tests.testquick">
+        <methods>
+          <include name="stopdriver"/>
+          <include name="screenshotonfailure"/>
+          <include name="click_on_serach_again"/>
+          <include name="Login"/>
+          <include name="close_driver"/>
+          <include name="display_total_post_count"/>
+          <include name="startdriver"/>
+        </methods>
+      </class> <!-- tests.testquick -->
+    </classes>
+  </test> <!-- Regression Test(failed) -->
+</suite> <!-- Failed suite [EPSILON Regression Suite] -->

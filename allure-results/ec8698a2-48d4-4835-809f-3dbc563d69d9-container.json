@@ -1,0 +1,1 @@
+{"uuid":"ec8698a2-48d4-4835-809f-3dbc563d69d9","name":"Default test","children":["f277005b-5a91-45f2-8408-e177c128c940"],"befores":[{"name":"admin_can_login_ssuccessfully","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1568551740801,"stop":1568551755756}],"afters":[],"links":[],"start":1568551740799,"stop":1568551757150}

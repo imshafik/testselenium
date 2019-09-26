@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="18103" started-at="2019-09-26T14:09:01 EET" finished-at="2019-09-26T14:09:19 EET">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="18103" started-at="2019-09-26T14:09:01 EET" finished-at="2019-09-26T14:09:19 EET">
+      <class name="tests.TestWatchPage">
+        <test-method status="PASS" signature="startdriver()[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="startdriver" is-config="true" duration-ms="9798" started-at="2019-09-26T14:08:51 EET" finished-at="2019-09-26T14:09:01 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startdriver -->
+        <test-method status="PASS" signature="Login()[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="Login" is-config="true" duration-ms="4586" started-at="2019-09-26T14:09:01 EET" finished-at="2019-09-26T14:09:06 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="Open_Competitions_tab()[pri:1, instance:tests.TestWatchPage@4cc451f2]" name="Open_Competitions_tab" duration-ms="4286" started-at="2019-09-26T14:09:06 EET" finished-at="2019-09-26T14:09:10 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Open_Competitions_tab -->
+        <test-method status="PASS" signature="screenshotonfailure(org.testng.ITestResult)[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="screenshotonfailure" is-config="true" duration-ms="4" started-at="2019-09-26T14:09:10 EET" finished-at="2019-09-26T14:09:10 EET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Open_Competitions_tab status=SUCCESS method=TestWatchPage.Open_Competitions_tab()[pri:1, instance:tests.TestWatchPage@4cc451f2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotonfailure -->
+        <test-method status="PASS" signature="flightDeals(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:tests.TestWatchPage@4cc451f2]" name="flightDeals" duration-ms="3660" started-at="2019-09-26T14:09:11 EET" data-provider="WatchLinksdata" finished-at="2019-09-26T14:09:15 EET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[this is one post test]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.facebook.com/groups/ISTQBEgypt/permalink/10156899349278823/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[post]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[posts]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flightDeals -->
+        <test-method status="PASS" signature="screenshotonfailure(org.testng.ITestResult)[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="screenshotonfailure" is-config="true" duration-ms="0" started-at="2019-09-26T14:09:15 EET" finished-at="2019-09-26T14:09:15 EET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=flightDeals status=SUCCESS method=TestWatchPage.flightDeals(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:tests.TestWatchPage@4cc451f2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotonfailure -->
+        <test-method status="PASS" signature="flightDeals(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:tests.TestWatchPage@4cc451f2]" name="flightDeals" duration-ms="4550" started-at="2019-09-26T14:09:15 EET" data-provider="WatchLinksdata" finished-at="2019-09-26T14:09:19 EET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[this is three post test]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.facebook.com/groups/ISTQBEgypt/permalink/10156899125463823/
+https://www.facebook.com/groups/ISTQBEgypt/permalink/10156897003993823/
+https://www.facebook.com/groups/ISTQBEgypt/permalink/10156898500538823/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[three posts]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[posts]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flightDeals -->
+        <test-method status="PASS" signature="screenshotonfailure(org.testng.ITestResult)[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="screenshotonfailure" is-config="true" duration-ms="1" started-at="2019-09-26T14:09:19 EET" finished-at="2019-09-26T14:09:19 EET">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=flightDeals status=SUCCESS method=TestWatchPage.flightDeals(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:tests.TestWatchPage@4cc451f2] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- screenshotonfailure -->
+        <test-method status="PASS" signature="stopdriver()[pri:0, instance:tests.TestWatchPage@4cc451f2]" name="stopdriver" is-config="true" duration-ms="1" started-at="2019-09-26T14:09:19 EET" finished-at="2019-09-26T14:09:19 EET">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopdriver -->
+      </class> <!-- tests.TestWatchPage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
