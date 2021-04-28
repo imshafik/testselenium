@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.seleniumhq.selenium:selenium-java
+    versions:
+    - 4.0.0-alpha-7
+    - 4.0.0-beta-1
+    - 4.0.0-beta-2
+  - dependency-name: io.qameta.allure:allure-testng
+    versions:
+    - 2.13.8
+  - dependency-name: org.testng:testng
+    versions:
+    - 7.3.0
